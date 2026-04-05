@@ -31,6 +31,7 @@ raw/              ← Your source documents (immutable, LLM never modifies)
   papers/         ← Academic papers, whitepapers
   images/         ← Diagrams, figures
   assets/         ← Downloaded image attachments
+  meetings/       ← Meeting notes ingested from Fellow
 wiki/             ← LLM-generated knowledge base (LLM owns this entirely)
   sources/        ← Per-source summary pages
 output/           ← Generated artifacts
@@ -38,6 +39,7 @@ output/           ← Generated artifacts
   slides/         ← Marp-format slide decks
   charts/         ← Generated charts and visualizations
 _prompts/         ← Reusable prompt templates
+scripts/          ← Ingest scripts for external data sources
 docs/             ← Usage guide and founding documents
 CLAUDE.md         ← Schema file — tells the LLM how to maintain the wiki
 ```
@@ -46,9 +48,12 @@ CLAUDE.md         ← Schema file — tells the LLM how to maintain the wiki
 
 The LLM reads sources from `raw/`, compiles them into interlinked wiki pages in `wiki/`, and maintains everything — summaries, cross-references, indexes. You curate sources, ask questions, and direct the analysis. The LLM does the bookkeeping.
 
+Meeting notes from [Fellow](https://fellow.app) can be ingested automatically using `scripts/ingest_fellow.py`, which fetches meeting notes, attendees, and action items via the Fellow API and writes them as markdown files to `raw/meetings/`.
+
 See `CLAUDE.md` for the full schema, conventions, and workflows.
-See `_prompts/` for the compilation and update prompts.
+See `_prompts/` for the compilation, update, and Fellow-notes ingestion prompts.
 See `docs/` for the usage guide and founding documents.
+See `raw/README.md` for instructions on running the Fellow ingest script.
 
 ## Attribution
 

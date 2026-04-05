@@ -99,12 +99,14 @@ See `_prompts/compile-wiki.md` for initial compilation and `_prompts/update-wiki
 | `raw/papers/` | Academic papers, whitepapers |
 | `raw/images/` | Diagrams, screenshots, figures |
 | `raw/assets/` | Downloaded image attachments |
+| `raw/meetings/` | Meeting notes ingested from Fellow |
 | `wiki/` | LLM-maintained knowledge base |
 | `wiki/sources/` | Per-source summary pages |
 | `output/reports/` | Q&A reports and lint reports |
 | `output/slides/` | Marp-format slide decks |
 | `output/charts/` | Generated charts and visualizations |
 | `_prompts/` | Reusable prompt templates |
+| `scripts/` | Ingest scripts for external data sources |
 | `docs/` | Usage guide and founding documents |
 
 ## Raw source naming convention
