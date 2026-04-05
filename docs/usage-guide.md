@@ -34,6 +34,30 @@ Step-by-step instructions for using kb-template.
 2. Copy-paste `_prompts/update-wiki.md` (or just say "ingest the new sources")
 3. The LLM finds what's new, integrates it — updates existing pages, creates new ones, updates index/overview/log
 
+### Ingesting HelpScout tickets automatically
+
+1. Create a HelpScout OAuth2 app in **Your Profile → My Apps → Create My App** and note the client ID and secret
+2. Set credentials as environment variables (never commit secrets):
+   ```bash
+   export HELPSCOUT_CLIENT_ID=your_client_id
+   export HELPSCOUT_CLIENT_SECRET=your_client_secret
+   ```
+3. Install the script dependency: `pip install requests`
+4. Run the ingestion script:
+   ```bash
+   python scripts/ingest_helpscout.py
+   ```
+   Optional flags:
+   ```
+   --mailbox  <id>         Only fetch from a specific mailbox
+   --status   closed       Filter by status (active | pending | closed | spam)
+   --since    YYYY-MM-DD   Only tickets updated on or after this date
+   --max      50           Maximum conversations to fetch (default: 100)
+   --output   /custom/dir  Override output directory (default: raw/helpscout/)
+   ```
+5. Tickets are written as Markdown files in `raw/helpscout/` with the naming pattern `YYYY-MM-DD_helpscout-<id>-<slug>.md`
+6. Run `_prompts/update-wiki.md` (or say "ingest the new sources") so the LLM integrates the tickets into the wiki
+
 ### Asking questions
 
 1. Copy-paste `_prompts/qa.md` and ask your question (or just ask naturally — the schema file guides the LLM)
