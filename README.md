@@ -2,6 +2,13 @@
 
 A ready-to-use template repo to fork - for building LLM-maintained knowledge bases with Obsidian based on the LLM knowledge base pattern created by [Andrej Karpathy](https://github.com/karpathy).
 
+This repo is pre-configured as a **company-wide business knowledge base** — designed to capture intelligence from proposals, meeting notes, helpdesk issues, client feedback, and process documentation, and turn it into compounding, actionable knowledge across four strategic focus areas:
+
+1. **Client value** — identifying opportunities to deliver more value to existing clients
+2. **Process improvement** — spotting and fixing systemic failures in systems and processes
+3. **Content marketing** — mining real expertise and client outcomes for content that attracts new business
+4. **Sales & growth** — learning from proposals to win more, faster
+
 ## Design principles
 
 **Explicit.** Your knowledge is stored as a navigable wiki — you can see exactly what the AI knows and doesn't know. The memory artifact is inspectable and manageable, not implicit and hidden inside some AI provider's system.
@@ -31,14 +38,23 @@ raw/              ← Your source documents (immutable, LLM never modifies)
   papers/         ← Academic papers, whitepapers
   images/         ← Diagrams, figures
   assets/         ← Downloaded image attachments
+  proposals/      ← Sales proposals, SOWs, and quotes
+  meeting-notes/  ← Client and internal meeting notes
+  helpdesk/       ← Support tickets, incident reports, bug reports
+  client-feedback/← NPS surveys, testimonials, reviews, churn interviews
+  process-docs/   ← SOPs, runbooks, system architecture docs
 wiki/             ← LLM-generated knowledge base (LLM owns this entirely)
   sources/        ← Per-source summary pages
+  clients/        ← Per-client entity pages
+  process-improvements/ ← Process failure patterns and improvement proposals
+  content-marketing/    ← Content calendar and content strategy pages
+  sales/          ← Proposal patterns, win/loss analysis, sales playbook
 output/           ← Generated artifacts
-  reports/        ← Q&A reports and lint reports
+  reports/        ← Q&A reports, analysis reports, and lint reports
   slides/         ← Marp-format slide decks
   charts/         ← Generated charts and visualizations
 _prompts/         ← Reusable prompt templates
-docs/             ← Usage guide and founding documents
+docs/             ← Usage guides and founding documents
 CLAUDE.md         ← Schema file — tells the LLM how to maintain the wiki
 ```
 
@@ -46,9 +62,17 @@ CLAUDE.md         ← Schema file — tells the LLM how to maintain the wiki
 
 The LLM reads sources from `raw/`, compiles them into interlinked wiki pages in `wiki/`, and maintains everything — summaries, cross-references, indexes. You curate sources, ask questions, and direct the analysis. The LLM does the bookkeeping.
 
+Key inputs for the business KB:
+- **Proposals** — for sales pattern analysis and faster proposal generation
+- **Meeting notes** — for client intelligence and process insights
+- **Helpdesk issues** — for identifying recurring failures and improvement opportunities
+- **Client feedback** — for NPS tracking, content marketing hooks, and churn prevention
+- **Process docs** — for cross-referencing against real-world failure patterns
+
 See `CLAUDE.md` for the full schema, conventions, and workflows.
-See `_prompts/` for the compilation and update prompts.
-See `docs/` for the usage guide and founding documents.
+See `_prompts/` for the compilation, update, and business intelligence prompts.
+See `docs/business-kb-guide.md` for the step-by-step business KB guide.
+See `docs/usage-guide.md` for general setup and workflow.
 
 ## Attribution
 

@@ -28,3 +28,10 @@ YYYY-MM-DD_short-slug.ext
 | `raw/papers/` | Academic papers, whitepapers (PDF or markdown) |
 | `raw/images/` | Diagrams, screenshots, figures referenced by articles |
 | `raw/assets/` | Downloaded image attachments (via Obsidian hotkey) |
+| `raw/proposals/` | Sales proposals, quotes, and scopes of work — see `raw/proposals/README.md` |
+| `raw/meeting-notes/` | Client and internal meeting notes — see `raw/meeting-notes/README.md` |
+| `raw/helpdesk/` | Support tickets, incident reports, bug reports — see `raw/helpdesk/README.md` |
+| `raw/client-feedback/` | NPS surveys, testimonials, reviews, churn interviews — see `raw/client-feedback/README.md` |
+| `raw/process-docs/` | SOPs, runbooks, system architecture docs — see `raw/process-docs/README.md` |
+
+Each business-specific subdirectory has its own README with naming conventions and recommended file structure.
