@@ -12,3 +12,7 @@ desktop.ini
 
 # Environment variables — contains secrets, never commit
 .env
+
+# Python
+__pycache__/
+*.pyc
