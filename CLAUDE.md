@@ -2,7 +2,14 @@
 
 > **Portability note:** This file is named `CLAUDE.md` for Claude Code. Rename it to match your LLM agent's convention (e.g. `AGENTS.md` for Codex). The instructions are AI-agnostic.
 
-This is an LLM-maintained knowledge base. The LLM writes and maintains all wiki content. The human curates sources, directs analysis, and asks questions. All data is stored as plain files in universal formats (markdown, images) — the human owns the data and can use any AI agent or tool over it.
+This is a company-wide, LLM-maintained business knowledge base. It captures intelligence from proposals, meeting notes, helpdesk issues, client feedback, and process documentation — and turns it into compounding, actionable knowledge. The four strategic focus areas are:
+
+1. **Client value** — identifying opportunities to deliver more value to existing clients
+2. **Process improvement** — spotting and fixing systemic failures in systems and processes
+3. **Content marketing** — mining real-world expertise and client outcomes for content
+4. **Sales & growth** — learning from proposals and client conversations to win more and grow faster
+
+The LLM writes and maintains all wiki content. The human curates sources, directs analysis, and asks questions. All data is stored as plain files in universal formats (markdown, images) — the human owns the data and can use any AI agent or tool over it.
 
 ## Architecture
 
@@ -99,9 +106,18 @@ See `_prompts/compile-wiki.md` for initial compilation and `_prompts/update-wiki
 | `raw/papers/` | Academic papers, whitepapers |
 | `raw/images/` | Diagrams, screenshots, figures |
 | `raw/assets/` | Downloaded image attachments |
+| `raw/proposals/` | Sales proposals, SOWs, and quotes |
+| `raw/meeting-notes/` | Client and internal meeting notes |
+| `raw/helpdesk/` | Support tickets, incident reports, bug reports |
+| `raw/client-feedback/` | NPS surveys, testimonials, reviews, churn interviews |
+| `raw/process-docs/` | SOPs, runbooks, system architecture docs |
 | `wiki/` | LLM-maintained knowledge base |
 | `wiki/sources/` | Per-source summary pages |
-| `output/reports/` | Q&A reports and lint reports |
+| `wiki/clients/` | Per-client entity pages |
+| `wiki/process-improvements/` | Process failure patterns and improvement proposals |
+| `wiki/content-marketing/` | Content calendar and content strategy pages |
+| `wiki/sales/` | Proposal patterns, win/loss analysis, sales playbook |
+| `output/reports/` | Q&A reports, analysis reports, and lint reports |
 | `output/slides/` | Marp-format slide decks |
 | `output/charts/` | Generated charts and visualizations |
 | `_prompts/` | Reusable prompt templates |
@@ -110,6 +126,45 @@ See `_prompts/compile-wiki.md` for initial compilation and `_prompts/update-wiki
 ## Raw source naming convention
 
 Files in `raw/` follow: `YYYY-MM-DD_short-slug.ext` — see `raw/README.md` for details.
+
+Business-specific subdirectories have their own naming conventions — see the README in each subdirectory.
+
+## Business intelligence workflows
+
+In addition to the standard ingest/query/lint workflows, this knowledge base supports four recurring business analysis workflows. Each has a dedicated prompt in `_prompts/`.
+
+### Client value analysis (`_prompts/client-value-analysis.md`)
+
+Mines meeting notes, helpdesk issues, and client feedback to surface expansion opportunities, quick wins, and proactive interventions for each active client.
+
+Run this: monthly or quarterly, or when preparing for a client QBR.
+
+### Process improvement (`_prompts/process-improvement.md`)
+
+Cross-references helpdesk patterns, retrospectives, and process docs to identify the highest-impact process failures and propose concrete fixes.
+
+Run this: quarterly, or after a significant incident or a wave of similar support tickets.
+
+### Content marketing (`_prompts/content-marketing.md`)
+
+Mines proposals, meeting notes, and client outcomes for content opportunities — FAQ posts, case studies, thought leadership — and can generate full first drafts.
+
+Run this: monthly, or when planning a content sprint.
+
+### Sales proposals (`_prompts/sales-proposal.md`)
+
+Two modes: (a) generate a new tailored proposal from a brief using historical evidence, or (b) analyse the proposal history to identify win/loss patterns and improve the process.
+
+Run this: on-demand for new proposals; quarterly for win/loss analysis.
+
+## Wiki structure for business intelligence
+
+In addition to `wiki/sources/`, maintain these subdirectories:
+
+- **`wiki/clients/`** — One page per active client: services used, history, pain points, opportunities, NPS trend. Updated on every client-related ingest.
+- **`wiki/process-improvements/`** — Pages for identified process failure patterns and proposed improvements. Linked from relevant helpdesk and meeting note sources.
+- **`wiki/content-marketing/`** — Content calendar (`content-calendar.md`), audience/persona pages, and individual content brief pages.
+- **`wiki/sales/`** — Proposal patterns (`proposal-patterns.md`), win/loss analysis, service offering pages, and pricing strategy notes.
 
 ## Search tooling
 
