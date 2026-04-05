@@ -50,6 +50,22 @@ See `CLAUDE.md` for the full schema, conventions, and workflows.
 See `_prompts/` for the compilation and update prompts.
 See `docs/` for the usage guide and founding documents.
 
+## Integrations
+
+### ClickUp
+
+Import your ClickUp spaces, lists, tasks, and comments as raw markdown sources:
+
+```bash
+export CLICKUP_API_TOKEN=your_token_here
+pip install -r scripts/requirements.txt
+python scripts/clickup_to_raw.py
+```
+
+This writes one file per space to `raw/articles/` (e.g. `2026-04-05_clickup-engineering.md`), then use `_prompts/ingest-clickup.md` to tell your LLM agent to integrate the new files into the wiki.
+
+See `docs/clickup-integration.md` for full setup instructions.
+
 ## Attribution
 
 This project is based on the LLM knowledge base pattern created by [Andrej Karpathy](https://github.com/karpathy). The core idea — using LLMs to incrementally compile and maintain a persistent wiki from raw source documents — originates from his work and writings on the topic. The founding documents in `docs/` capture his original vision; this template packages it into a ready-to-use structure.
