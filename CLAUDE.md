@@ -99,6 +99,7 @@ See `_prompts/compile-wiki.md` for initial compilation and `_prompts/update-wiki
 | `raw/papers/` | Academic papers, whitepapers |
 | `raw/images/` | Diagrams, screenshots, figures |
 | `raw/assets/` | Downloaded image attachments |
+| `raw/helpscout/` | HelpScout helpdesk conversations (auto-ingested via `scripts/ingest_helpscout.py`) |
 | `wiki/` | LLM-maintained knowledge base |
 | `wiki/sources/` | Per-source summary pages |
 | `output/reports/` | Q&A reports and lint reports |
